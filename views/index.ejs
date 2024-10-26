@@ -1,0 +1,30 @@
+<%- include("./partials/header.ejs") %>
+<div class="w-full h-screen bg-grey-100">
+    <div class="flex flex-wrap gap-10 px-20 justify-start">
+        <% files.forEach(function(file) { %>
+            
+            <div class="w-1/6 px-10 py-5 bg-yellow-300 rounded-md transition duration-300 hover:bg-zinc-700 hover:shadow-lg">
+                
+                <div class="flex items-center gap-4">
+                    <% if (file.isDirectory()) { %>
+
+                        <i class="ri-folder-fill text-indigo-100 text-4xl"></i>
+                    <% } else { %>
+                        <i class="ri-file-fill text-emerald-400 text-4xl"></i>
+                    <% } %>
+                    <h1 class="text-white text-2xl"><%= file.name %></h1>
+                </div>
+                
+                
+                <h2 class="mt-4 text-gray-200"> </h2>
+                <h2 class="text-gray-400">Date</h2>
+                <div class="flex justify-between  gap-4">
+                    <a class=" text-green-500" href="/show/<%=file.name%>">View</a>
+                    <a class="text-xl text-red-500" href="/delete/<%=file.name%>">Delete</a>
+                    <!-- <a class="text-xl text-blue-500" href="/edit/<%=file.name%>">edit</a> -->
+
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
